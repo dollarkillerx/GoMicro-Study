@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package hello;
+
+service HelloService {
+    rpc SyaHello(HelloRequest) returns (HelloResponse) {};
+}
+
+message HelloRequest {
+
+}
+
+message HelloResponse {
+    string name = 1;
+}
+
+// 关于自定义类型
+message MutiHellRequest {
+    message Time {
+        int64 start = 1;
+        int64 end = 2;
+    }
+   repeated int64 id = 1;
+   Time time = 2;
+}
+
+message MutiHellResponse {
+    repeated int64 id = 2;
+}
+
+
+
+
+// protoc --go_out=plugins=grpc:. hello.proto
+
+
+
+
